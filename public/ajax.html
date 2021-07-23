@@ -1,14 +1,18 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
+  // so this runs creating a new HTTP req, and HTTP is stateless
   const ourRequest = $.ajax({
     method: 'POST',
     url: 'http://localhost:3000/ajax',
-    dataType: 'json',
+    dataType: 'json', // still sent data as urlEncoded so you have to explicitly set the headers if you want to send JSON
     data: {
       // this will be in req.body when it's req'd a processed through express.json() and express.urlencode() middlewares
       name: 'Manny'
     }
   })
-  ourRequest.then((res) => console.log(res))
+  ourRequest.then((res, statusCode, xmlhttpobj) => {
+    console.log(res)
+    console.log(xmlhttpobj)
+  })
 </script>
