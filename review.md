@@ -76,3 +76,25 @@ And the last thing we do is send out the response.
 - res.sendFile - send back a file, we'll hardly use this
 - res.locals - is available throughout the response cycle
 - res.json - (jsonp) - sends json back as application/json
+
+## Debugging
+
+- First line of defense when looking at an error message is to look for a file that you made. The (line #:char #)
+
+## THE ROUND TRIP FOR RES.RENDER()
+
+1. Express as we know it happens. This file.
+2. Define a view engine. (EJS, mustache, handlebars, jade/pug)
+
+- http://expressjs.com/en/api.html#app.set
+
+3. Inside one of our routes we have a res.render() and pass it 2 things
+
+- the file we want to use
+- data we want to send to that file (template) - (this is actually res.locals)
+
+4. Express uses the node module for our specified view engine and parses the file.
+
+- the means, it takes the HTML/CSS/JS and combines it w/ whatever "node" there is in the file
+
+5. The final result of this process is a compiled product of the things the browser can read.
