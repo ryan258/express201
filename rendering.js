@@ -6,7 +6,7 @@ const app = express()
 
 // Ready for battle
 const helmet = require('helmet')
-app.use(helmet())
+// app.use(helmet())
 
 // serve up static files
 app.use(express.static('public'))
@@ -14,13 +14,14 @@ app.use(express.static('public'))
 //parse json and urlencoded data
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+// app.use(express.urlencoded())
 
 //! 2.) Define a view engine. (EJS, mustache, handlebars, jade/pug)
 //!     - Bridges node stuff to JS stuff
 // http://expressjs.com/en/api.html#app.set
 // app.set('view engine', 'ejs')
 // app.set('view engine', 'hbs')
-app.set('view engine', 'pug')
+app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 // or we could do more than one
 // app.set('view', [path.join(__dirname, 'views'), ...])
@@ -38,4 +39,4 @@ app.get('/', (req, res, next) => {
 })
 
 app.listen(3000)
-console.log('sanity check... beep?!')
+// console.log('sanity check... beep?!')
