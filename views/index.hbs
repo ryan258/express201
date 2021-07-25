@@ -1,1 +1,22 @@
 <h1>boom HBS! </h1>
+<a href="https://handlebarsjs.com/">HandleBars.js Docs</a>
+
+<p>Let me put this in terms you can understand... "{{message}}"</p>
+<p>Handle html w/ triple curly!</p>
+<p>Look, it's the ghost from {{country.capital}}, {{country.name}}</p>
+{{!-- {{{html}}} --}}
+
+{{!-- handlebar comments won't show up --}}
+<!-- but htm comments will render client -->
+
+{{!-- use each, if, unless(this is true) helpers --}}
+<h5>And the imposter is...</h5>
+
+<ul>
+{{#each critters}}
+  {{#if this.imposter}}
+   <li>{{this.name}} the {{this.type}}</li>
+  {{/if}}
+{{/each}}
+</ul>
+
