@@ -98,3 +98,7 @@ And the last thing we do is send out the response.
 - the means, it takes the HTML/CSS/JS and combines it w/ whatever "node" there is in the file
 
 5. The final result of this process is a compiled product of the things the browser can read.
+
+## Docs
+
+- (EJS Docs)[https://ejs.co/#docs]

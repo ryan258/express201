@@ -1,3 +1,23 @@
-<% for(let i = 0; i <10; i++){ %>
-<li>beep!</li>
+<!-- Import a partial -->
+<%- include('head') %> <%- include('navbar') %>
+<h1>home page!</h1>
+
+<!-- Import data into template via res.render() and locals -->
+
+<!-- receive data object from our js files' res.render object (2nd arg) - remember these are coming off res.locals, but locals is assumed in the templates so you don't need to use it -->
+<!-- <h1><%= message %></h1>
+<h2><%= locals.message2 %></h2>
+<h3><%= locals.validated %></h3>
+<div><%- html %></div> -->
+
+<!-- Basic EJS - this kind of comment appears in the DOM-->
+
+<!-- <% for(let i = 0; i <10; i++){ %>
+<li><%= i %></li>
 <% } %>
+
+<ul>
+  <% for(let i = 0; i <10; i++){ %> <% if ( i % 2 === 0) { text = 'even' %> <% } else { text = 'odd' } %>
+  <li><%= `${i} is ${text}` %></li>
+  <% } %>
+</ul> -->

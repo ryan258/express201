@@ -16,10 +16,41 @@ app.set('views', path.join(__dirname, 'views'))
 
 //! 4.) Express uses the node module for our specified view engine and parses the file.
 //!   - the means, it takes the HTML/CSS/JS and combines it w/ whatever "node" there is in the file
+//!   - Data we want to send to our template file! THE 2ND ARG!
+//      - the obj will be appended to res.local
 //! 5.) The final result of this process is a compiled product of the things the browser can read.
 
+/*const validateUser = (req, res, next) => {
+  // .. real world we do some validation logic
+  res.locals.validated = true
+  next()
+}
+
+app.use(validateUser)
+*/
+
+// or just
+
+app.use((req, res, next) => {
+  // .. real world we do some validation logic
+  res.locals.validated = true
+  next()
+})
+// now every path will have access to locals.validated
+
+app.get('/about', (req, res, next) => {
+  res.render('about', {
+    title: 'About these ghosts...'
+  })
+})
+
 app.get('/', (req, res, next) => {
-  res.render('index')
+  res.render('index', {
+    message: 'beep boop',
+    message2: 'boo!',
+    // HTML came from teh DB and we want to drop it in the template
+    html: `<p><img src="https://www.kindpng.com/picc/m/103-1038268_not-scary-cartoon-ghost-hd-png-download.png" /></p>`
+  })
 })
 
 app.listen(3000)
