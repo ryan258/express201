@@ -1,1 +1,25 @@
-h1 Hello Pug! 
+doctype html
+html
+  head
+    title Greetings from PUG 🐮
+    script(src='https://code.jquery.com/jquery.js')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+  body
+    .container
+      .row
+        .col-sm-12
+          h1 Hello Pug!
+          p A warning
+          p Time is running out...
+      .row
+        .col-sm-6 #{country.capital}
+        .col-sm-3 #{message}
+        .col-sm-3 Your message is #{message2}
+        //- .col-sm-12 !{html}
+      .row
+        ul.col-sm-12
+          each critter in critters
+            li= critter.name + ' -- ' + critter.type
+            if critter.imposter
+              .imposter This critter is an imposter!
+    div Message of the day: 2+2 = #{2+2}
